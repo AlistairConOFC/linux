@@ -1,0 +1,220 @@
+/* Сброс стандартных отступов */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Фон страницы */
+body {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    font-family: 'Courier New', 'Fira Code', monospace;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Основной контейнер терминала */
+.terminal-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 85vh;
+    background: #0a0e1a;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========== ЗАГОЛОВОК ТЕРМИНАЛА ========== */
+.terminal-header {
+    background: #1e1e2e;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #2a2a3a;
+}
+
+/* Кнопки окна (красная, желтая, зеленая) */
+.window-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.window-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.close { background: #ff5f56; }
+.minimize { background: #ffbd2e; }
+.maximize { background: #27c93f; }
+
+.terminal-title {
+    color: #abb2bf;
+    font-size: 12px;
+    margin-left: 12px;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* ========== ОБЛАСТЬ ВЫВОДА ТЕРМИНАЛА ========== */
+.terminal-output {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #0a0e1a;
+    color: #abb2bf;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Строка с выполненной командой */
+.command-line {
+    margin-bottom: 8px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.command-prompt {
+    color: #98c379;
+    margin-right: 12px;
+}
+
+.command-text {
+    color: #e5c07b;
+}
+
+/* Обычный вывод */
+.output-line {
+    color: #abb2bf;
+    margin-bottom: 12px;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+/* Вывод ошибок */
+.error-line {
+    color: #e06c75;
+}
+
+/* ========== СТРОКА ВВОДА ========== */
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    background: #0c101c;
+    border-top: 1px solid #1e1e2e;
+    font-family: 'Courier New', monospace;
+}
+
+.prompt {
+    color: #98c379;
+    font-weight: bold;
+    margin-right: 12px;
+    white-space: nowrap;
+}
+
+.input-field {
+    background: transparent;
+    border: none;
+    color: #e5c07b;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    flex: 1;
+    outline: none;
+}
+
+/* ========== ИНФОРМАЦИОННАЯ ПАНЕЛЬ ========== */
+.info-bar {
+    background: #1e1e2e;
+    padding: 6px 16px;
+    font-size: 11px;
+    color: #5c6370;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #2a2a3a;
+}
+
+/* ========== СКРОЛЛБАР ========== */
+.terminal-output::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terminal-output::-webkit-scrollbar-track {
+    background: #1e1e2e;
+}
+
+.terminal-output::-webkit-scrollbar-thumb {
+    background: #3a3a4a;
+    border-radius: 4px;
+}
+
+.terminal-output::-webkit-scrollbar-thumb:hover {
+    background: #4a4a5a;
+}
+
+/* ========== ЭФФЕКТ КУРСОРА (для возможного расширения) ========== */
+.cursor-blink {
+    display: inline-block;
+    width: 10px;
+    height: 18px;
+    background-color: #abb2bf;
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ========== АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ ========== */
+@media (max-width: 768px) {
+    .terminal-container {
+        height: 90vh;
+        border-radius: 8px;
+    }
+    
+    .terminal-output {
+        padding: 12px;
+        font-size: 12px;
+    }
+    
+    .terminal-input-line {
+        padding: 8px 12px;
+    }
+    
+    .input-field {
+        font-size: 12px;
+    }
+    
+    .prompt {
+        font-size: 12px;
+    }
+    
+    .info-bar {
+        font-size: 9px;
+    }
+}
+
+/* ========== ДОПОЛНИТЕЛЬНЫЕ ЭФФЕКТЫ ========== */
+/* Подсветка при наведении на строку ввода */
+.terminal-input-line:hover {
+    background: #0e1220;
+}
+
+/* Плавный скролл */
+.terminal-output {
+    scroll-behavior: smooth;
+}
+
+/* Выделение текста в терминале */
+.terminal-output ::selection {
+    background: #3e4451;
+    color: #ffffff;
+}
