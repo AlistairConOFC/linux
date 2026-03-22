@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Демо-терминал Astra Linux</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <div class="window-buttons">
+                <div class="window-btn close"></div>
+                <div class="window-btn minimize"></div>
+                <div class="window-btn maximize"></div>
+            </div>
+            <div class="terminal-title">user@astra: ~/demo</div>
+        </div>
+        
+        <div class="terminal-output" id="terminalOutput">
+            <div class="output-line">Демо-терминал Astra Linux Special Edition</div>
+            <div class="output-line">Версия эмуляции: 1.0</div>
+            <div class="output-line">Доступные команды: help, ls, cd, pwd, echo, date, whoami, clear, neofetch, nano (демо), sudo (демо)</div>
+            <div class="output-line">Введите 'help' для списка команд</div>
+            <div class="output-line"><br></div>
+        </div>
+        
+        <div class="terminal-input-line">
+            <span class="prompt" id="prompt">user@astra:~/demo$</span>
+            <input type="text" class="input-field" id="commandInput" autofocus>
+        </div>
+        
+        <div class="info-bar">
+            <span>Демо-режим | Эмуляция команд</span>
+            <span>Для реального терминала используйте ttyd</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
